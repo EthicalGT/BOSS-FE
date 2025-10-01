@@ -1,42 +1,572 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-a {
-  color: inherit;
+
+@font-face {
+  font-family: myfamily;
+  src: url('../app/assets/fonts/Ubuntu-Regular.ttf');
+}
+
+body {
+  background: #0b1120;
+  color: #fff;
+  line-height: 1.6;
+  font-family: myfamily;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4%;
+  background: transparent;
+  width: 100%;
+}
+
+.logo {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo small {
+  font-size: 0.7rem;
+  font-weight: normal;
+  color: #aaa;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #ddd;
+
   text-decoration: none;
+  font-size: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.nav-links a:hover {
+  color: #0ef;
+}
+
+.nav-actions button {
+  margin-left: 10px;
+}
+
+main {
+  width: 90%;
+  margin: 20px 5%;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: #0ef;
+  color: #0b1120;
+}
+
+.btn-primary:hover {
+  background: #09c;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #0ef;
+  color: #0ef;
+}
+
+.btn-outline:hover {
+  background: #0ef;
+  color: #0b1120;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 8%;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.hero-left {
+  flex: 1 1 45%;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid #0ef;
+  color: #0ef;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.detect {
+  color: #fff;
+}
+
+.report {
+  color: #0ef;
+}
+
+.neutralize {
+  color: #f75;
+}
+
+.hero p {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+.hero-buttons button {
+  margin-right: 1rem;
+}
+
+/* Hero Right Card */
+.hero-right {
+  flex: 1 1 45%;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 198, 215, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+}
+
+.step-card {
+  padding: 0 16px;
+}
+
+.card:hover {
+  background: linear-gradient(135deg,
+      rgba(17, 24, 39, 0.5) 0%,
+      rgba(31, 41, 55, 0.3) 100%);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 198, 215, 0.2);
+}
+
+
+.card h3 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #0ef;
+}
+
+.flow-step {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+}
+
+.backend {
+  background: #291919;
+  border: 1px solid #f75;
+}
+
+.flow-arrow {
+  text-align: center;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #0ef;
+}
+
+.flow-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.action {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+.action:hover {
+  background: #0ef;
+  color: #0b1120;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left,
+  .hero-right {
+    flex: 1 1 100%;
   }
 }
+
+/*Enterprise Grade Browser Security*/
+
+.how-it-works {
+  padding: 96px 0;
+  background-color: var(--primary-navy);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.browser_security {
+  color: #0ef;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--gray-400);
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+  padding: 0 16px;
+}
+
+/* Step Card */
+.step-card {
+  position: relative;
+  background: rgba(17, 24, 39, 0.3);
+  /* subtle default */
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(0, 198, 215, 0.3);
+  height: 100%;
+  text-align: left;
+  transition: all 0.35s ease;
+}
+
+/* Hover effect */
+.step-card:hover {
+  background: linear-gradient(135deg,
+      rgba(17, 24, 39, 0.5) 0%,
+      rgba(31, 41, 55, 0.3) 100%);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 198, 215, 0.2);
+}
+
+/* Step Number Badge */
+.step-number {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #0ef;
+  color: #0b1120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.step-number p {
+  background-color: var(--electric-teal);
+}
+
+/* Step Content */
+.step-content {
+  margin-top: 16px;
+}
+
+.step-state {
+  text-align: left;
+  color: #0ef;
+}
+
+.step-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background-color: rgba(0, 198, 215, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.step-icon i {
+  color: var(--electric-teal);
+  font-size: 32px;
+}
+
+/* Glow icon on hover */
+.step-card:hover .step-icon {
+  background-color: rgba(0, 198, 215, 0.3);
+  box-shadow: 0 0 20px rgba(0, 198, 215, 0.6);
+}
+
+/* Titles and text */
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.step-subtitle {
+  font-size: 1.125rem;
+  color: var(--electric-teal);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.step-description {
+  color: var(--gray-300);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Code block */
+.step-code {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid rgba(0, 198, 215, 0.3);
+}
+
+.step-code code {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: var(--electric-teal);
+}
+
+/* CTA section */
+.section-cta {
+  text-align: center;
+  margin-top: 64px;
+}
+
+.cta-text {
+  color: var(--gray-400);
+  margin-bottom: 16px;
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid var(--electric-teal);
+  background-color: rgba(0, 198, 215, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cta-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 198, 215, 0.4);
+}
+
+.cta-link i {
+  color: var(--electric-teal);
+}
+
+/* How Boss Section */
+
+.boss {
+  color: #0ef;
+
+}
+
+.how-it-works {
+  padding: 96px 0;
+  background-color: var(--primary-navy);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.step-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.5) 0%, rgba(31, 41, 55, 0.3) 100%);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(0, 198, 215, 0.3);
+  height: 100%;
+}
+
+.step-connection {
+  display: none;
+}
+
+.step-content {
+  margin-top: 16px;
+}
+
+.step-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background-color: rgba(0, 198, 215, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.step-icon i {
+  color: var(--electric-teal);
+  font-size: 32px;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: white;
+  text-align: left;
+}
+
+.step-subtitle {
+  font-size: 1.125rem;
+  color: var(--electric-teal);
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.step-description {
+  color: var(--gray-300);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.step-code {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid rgba(0, 198, 215, 0.3);
+}
+
+.step-code code {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: var(--electric-teal);
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 64px;
+}
+
+.cta-text {
+  color: var(--gray-400);
+  margin-bottom: 16px;
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid var(--electric-teal);
+  background-color: rgba(0, 198, 215, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cta-link:hover {
+  transform: scale(1.05);
+}
+
+.cta-link i {
+  color: var(--electric-teal);
+}
+
+
+.step-card {
+  position: relative;
+  background: rgba(17, 24, 39, 0.3);
+  /* default state: subtle */
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(0, 198, 215, 0.3);
+  height: 100%;
+  transition: all 0.35s ease;
+  /* smooth transition */
+}
+
+.step-card:hover {
+  background: linear-gradient(135deg,
+      rgba(17, 24, 39, 0.5) 0%,
+      rgba(31, 41, 55, 0.3) 100%);
+  transform: translateY(-6px);
+  /* optional lift on hover */
+  box-shadow: 0 12px 30px rgba(0, 198, 215, 0.2);
+  /* subtle glow */
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.security {
+  color: #0ef;
+}
+
+/* core security modules */

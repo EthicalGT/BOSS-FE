@@ -1,0 +1,120 @@
+/* Auth page container */
+.auth-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0b1120;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Form container */
+.auth-container {
+    background-color: transparent;
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 2px solid #0ef;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Form title */
+.auth-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #0ef;
+}
+
+/* Form fields */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-input {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid #0ef;
+    color: #fff;
+    font-size: 16px;
+    background-color: transparent;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.auth-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Buttons */
+.auth-button {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.login-button {
+    background-color: #0ef;
+    color: #0b1120;
+}
+
+.login-button:hover {
+    background-color: #09c;
+    color: #fff;
+}
+
+.signup-button {
+    background-color: #0ef;
+    color: #0b1120;
+}
+
+.signup-button:hover {
+    background-color: #09c;
+    color: #fff;
+}
+
+/* Toggle text */
+.auth-toggle-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #0ef;
+}
+
+.auth-toggle-button {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 5px;
+    text-decoration: underline;
+}
+
+.auth-toggle-button:hover {
+    color: #fff;
+}
+
+.auth-toggle-button {
+    background-color: transparent;
+}
+
+.social-row {
+    background-color: transparent;
+    color: #0b1120;
+}
+
+.google-button {
+    background-color: transparent;
+    border: solid 2px #0ef;
+    color: #fff;
+}
