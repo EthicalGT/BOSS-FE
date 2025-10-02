@@ -231,11 +231,11 @@ export default function Home() {
                   <div className="step-icon">
                     <i className="fas fa-search"></i>
                   </div>
-                  <h3 className="step-title">Service Worker Monitor</h3>
+                  <h3 className="step-title">Storage Guardian</h3>
 
                   <p className="step-description">
-                    Continuous monitoring of service worker activities and
-                    background processe.
+                    Real-time protection against localStorage, sessionStorage, and indexedDB
+                    abuse.
                   </p>
                   <p className="step-module-number">
                     Module_02
@@ -250,11 +250,10 @@ export default function Home() {
                   <div className="step-icon">
                     <i className="fas fa-search"></i>
                   </div>
-                  <h3 className="step-title">Service Worker Monitor</h3>
+                  <h3 className="step-title">Request Shield</h3>
 
                   <p className="step-description">
-                    Continuous monitoring of service worker activities and
-                    background processe.
+                    Intercepts and analyzes all outgoing requests for suspicious patterns.
                   </p>
                   <p className="step-module-number">
                     Module_03
@@ -270,14 +269,13 @@ export default function Home() {
                   <div className="step-icon">
                     <i className="fas fa-search"></i>
                   </div>
-                  <h3 className="step-title">Service Worker Monitor</h3>
+                  <h3 className="step-title">Response Integrity Checker</h3>
 
                   <p className="step-description">
-                    Continuous monitoring of service worker activities and
-                    background processe.
+                    Validates response integrity and detects tempering attempts.
                   </p>
                   <p className="step-module-number">
-                    Module_01
+                    Module_04
                   </p>
 
                 </div>
@@ -289,14 +287,13 @@ export default function Home() {
                   <div className="step-icon">
                     <i className="fas fa-search"></i>
                   </div>
-                  <h3 className="step-title">Service Worker Monitor</h3>
+                  <h3 className="step-title">Auto-Defense Engine</h3>
 
                   <p className="step-description">
-                    Continuous monitoring of service worker activities and
-                    background processe.
+                    Automated threat response system with configurable action policies.
                   </p>
                   <p className="step-module-number">
-                    Module_02
+                    Module_05
                   </p>
 
                 </div>
@@ -308,20 +305,33 @@ export default function Home() {
                   <div className="step-icon">
                     <i className="fas fa-search"></i>
                   </div>
-                  <h3 className="step-title">Service Worker Monitor</h3>
+                  <h3 className="step-title">Analytics Dashboard</h3>
 
                   <p className="step-description">
-                    Continuous monitoring of service worker activities and
-                    background processe.
+                    Comprehensive threat analytics and real-time security monitoring.
                   </p>
                   <p className="step-module-number">
-                    Module_03
+                    Module_06
                   </p>
+                </div>
+              </div>
+
+              <div className="step-card2">
+                <div className="step-connection"></div>
+                <div className="step-content">
+
+                  <h3 className="step-title">Analytics Dashboard</h3>
+
+                  <p className="step-description">
+                    Comprehensive threat analytics and real-time security monitoring.
+                  </p>
+
                 </div>
               </div>
             </div>
           </div>
         </section>
+
       </main>
     </>
   );

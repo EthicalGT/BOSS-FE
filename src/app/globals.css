@@ -570,3 +570,17 @@ p {
 }
 
 /* core security modules */
+
+
+.step-card {
+  position: relative;
+  background: rgba(17, 24, 39, 0.3);
+  /* subtle default */
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(0, 198, 215, 0.3);
+  height: 100%;
+  text-align: left;
+  transition: all 0.35s ease;
+}
