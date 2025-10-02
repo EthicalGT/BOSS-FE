@@ -56,7 +56,7 @@ export default function Home() {
                   <p>1</p>
                 </div>
                 <div className="step-icon">
-                  <i className="fas fa-download"></i>
+                  <i className="fa fa-heartbeat" aria-hidden="true"></i>
                 </div>
                 <div className="step-content">
                   <h3 className="step-title">Real-Time Monitoring</h3>
@@ -88,10 +88,10 @@ export default function Home() {
               <div className="step-card">
                 <div className="step-number">3</div>
                 <div className="step-icon">
-                  <i className="fas fa-shield-alt"></i>
+                  <i className="fa-solid fa-brain" ></i>
                 </div>
                 <div className="step-content">
-                  <h3 className="step-title">Centra Inteligence</h3>
+                  <h3 className="step-title">Central Inteligence</h3>
                   <p className="step-description">
                     Rust backend aggregates threat data and applies intelligent rules
                     for comprehensive protection.
@@ -193,146 +193,81 @@ export default function Home() {
 
 
 
-        <section id="core-security-module" className="core-security-module">
-          <div className="container">
-            <section className="section-header">
-              <h2 className="section-title">
-                Core <span className="security">Security</span>Modules
-              </h2>
-              <p className="section-description">
-                Six powerfull modules working together to provide comprehensive
-                Browser-side security coverage.
-              </p>
-            </section><br />
-
-            <div className="steps-grid">
-              <div className="step-card">
-                <div className="step-connection"></div>
-                <div className="step-content">
-                  <div className="step-icon">
-                    <i className="fas fa-search"></i>
-                  </div>
-                  <h3 className="step-title">Service Worker Monitor</h3>
-
-                  <p className="step-description">
-                    Continuous monitoring of service worker activities and
-                    background processe.
-                  </p>
-                  <p className="step-module-number">
-                    Module_01
-                  </p>
-
-                </div>
-              </div>
-
-              <div className="step-card">
-                <div className="step-connection"></div>
-                <div className="step-content">
-                  <div className="step-icon">
-                    <i className="fas fa-search"></i>
-                  </div>
-                  <h3 className="step-title">Storage Guardian</h3>
-
-                  <p className="step-description">
-                    Real-time protection against localStorage, sessionStorage, and indexedDB
-                    abuse.
-                  </p>
-                  <p className="step-module-number">
-                    Module_02
-                  </p>
-
-                </div>
-              </div>
-
-              <div className="step-card">
-                <div className="step-connection"></div>
-                <div className="step-content">
-                  <div className="step-icon">
-                    <i className="fas fa-search"></i>
-                  </div>
-                  <h3 className="step-title">Request Shield</h3>
-
-                  <p className="step-description">
-                    Intercepts and analyzes all outgoing requests for suspicious patterns.
-                  </p>
-                  <p className="step-module-number">
-                    Module_03
-                  </p>
-                </div>
-              </div>
-            </div><br />
-
-            <div className="steps-grid">
-              <div className="step-card">
-                <div className="step-connection"></div>
-                <div className="step-content">
-                  <div className="step-icon">
-                    <i className="fas fa-search"></i>
-                  </div>
-                  <h3 className="step-title">Response Integrity Checker</h3>
-
-                  <p className="step-description">
-                    Validates response integrity and detects tempering attempts.
-                  </p>
-                  <p className="step-module-number">
-                    Module_04
-                  </p>
-
-                </div>
-              </div>
-
-              <div className="step-card">
-                <div className="step-connection"></div>
-                <div className="step-content">
-                  <div className="step-icon">
-                    <i className="fas fa-search"></i>
-                  </div>
-                  <h3 className="step-title">Auto-Defense Engine</h3>
-
-                  <p className="step-description">
-                    Automated threat response system with configurable action policies.
-                  </p>
-                  <p className="step-module-number">
-                    Module_05
-                  </p>
-
-                </div>
-              </div>
-
-              <div className="step-card">
-                <div className="step-connection"></div>
-                <div className="step-content">
-                  <div className="step-icon">
-                    <i className="fas fa-search"></i>
-                  </div>
-                  <h3 className="step-title">Analytics Dashboard</h3>
-
-                  <p className="step-description">
-                    Comprehensive threat analytics and real-time security monitoring.
-                  </p>
-                  <p className="step-module-number">
-                    Module_06
-                  </p>
-                </div>
-              </div>
-
-              <div className="step-card2">
-                <div className="step-connection"></div>
-                <div className="step-content">
-
-                  <h3 className="step-title">Analytics Dashboard</h3>
-
-                  <p className="step-description">
-                    Comprehensive threat analytics and real-time security monitoring.
-                  </p>
-
-                </div>
-              </div>
-            </div>
-          </div>
+        <section className="section">
+          <h2>Core<span className="security_modules"> Security Modules</span></h2>
+          <p>Six powerful modules working together to provide comprehensive browser-side security coverage.</p>
         </section>
 
-      </main>
+
+        <div className="grid">
+          <div className="card">
+            <span className="status">● Active</span>
+            <div className="step-icon">
+              <i className="fa fa-eye " aria-hidden="true"></i>
+            </div>
+            <h3>Service Worker Monitor</h3>
+            <p>Continuous monitoring of service worker activities and background processes.</p>
+          </div>
+          <div className="card">
+            <span className="status">● Active</span>
+            <div className="step-icon">
+              <i className="fa fa-database" aria-hidden="true"></i>
+            </div>
+            <h3>Storage Guardian</h3>
+            <p>Real-time protection against localStorage, sessionStorage, and IndexedDB abuse.</p>
+          </div>
+          <div className="card">
+            <span className="status">● Active</span>
+            <div className="step-icon">
+              <i className="fa fa-shield" aria-hidden="true"></i>
+            </div>
+            <h3>Request Shield</h3>
+            <p>Intercepts and analyzes all outgoing requests for suspicious patterns.</p>
+          </div>
+          <div className="card">
+            <span className="status">● Active</span>
+            <div className="step-icon">
+              <i className="fa fa-check-circle" aria-hidden="true"></i>
+            </div>
+            <h3>Response Integrity Checker</h3>
+            <p>Validates response integrity and detects tampering attempts.</p>
+          </div>
+          <div className="card">
+            <span className="status">● Active</span>
+            <div className="step-icon">
+              <i className="fas fa-bolt"></i>
+            </div>
+            <h3>Auto-Defense Engine</h3>
+            <p>Automated threat response system with configurable action policies.</p>
+          </div>
+          <div className="card">
+            <span className="status">● Active</span>
+            <div className="step-icon">
+              <i className="fa fa-bar-chart" aria-hidden="true"></i>
+            </div>
+            <h3>Analytics Dashboard</h3>
+            <p>Comprehensive threat analytics and real-time security monitoring.</p>
+          </div>
+        </div>
+
+
+        <div className="step-card2">
+          <h3>Technical Specifications</h3>
+          <div className="spec-item">
+            <span className="highlight">&lt;1ms</span>
+            <p>Average Response Time</p>
+          </div>
+          <div className="spec-item">
+            <span className="highlight">99.9%</span>
+            <p>Threat Detection Rate</p>
+          </div>
+          <div className="spec-item">
+            <span className="highlight">24/7</span>
+            <p>Continuous Monitoring</p>
+          </div>
+        </div>
+
+      </main >
     </>
   );
 }

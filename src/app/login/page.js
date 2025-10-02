@@ -5,6 +5,7 @@ import "./login.css";
 import { jwtDecode } from "jwt-decode";
 import { GoogleLogin } from "@react-oauth/google";
 import { SignUpHandler } from "../API";
+import Link from "next/link";
 
 export default function AuthPage() {
     const handleGoogleLoginSuccess = (credentialResponse) => {
@@ -49,7 +50,6 @@ export default function AuthPage() {
         console.log("Signup Data (local only):", {
             email: signupData.email,
             name: signupData.ownerName,
-            dob: signupData.dob,
         });
     };
 
@@ -88,6 +88,10 @@ export default function AuthPage() {
                             <button type="submit" className="auth-button login-button">
                                 Login
                             </button>
+                            <Link href="/otp"> <button type="submit" className="auth-button otp-button">
+                                Otp
+                            </button></Link>
+
                             <div className="social-row">
                                 <GoogleLogin
                                     onSuccess={handleGoogleLoginSuccess}
@@ -147,6 +151,7 @@ export default function AuthPage() {
                             <button type="submit" className="auth-button signup-button">
                                 Signup
                             </button>
+
                         </form>
                     )}
 
@@ -160,7 +165,7 @@ export default function AuthPage() {
                         </button>
                     </p>
                 </div>
-            </div>
+            </div >
         </>
     );
 }

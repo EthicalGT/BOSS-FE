@@ -1,0 +1,48 @@
+.main-form {
+    justify-content: center;
+    display: flex;
+    margin-top: 6rem;
+
+}
+
+
+.otp-form {
+    background: transparent;
+    padding: 30px;
+    border-radius: 10px;
+    border: solid 2px #0ef;
+    width: 350px;
+
+}
+
+.otp_title {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.otp-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #00c4ff;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+}
+
+.otp-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #0ef;
+    color: #0b1a3a;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.otp-button:hover {
+    background: #00a8d6;
+}
