@@ -2,17 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../Navbar";
 import "./login.css";
-
-/**
- * Client-only Google Sign-In (OAuth2 token client) demo.
- * - Requires: NEXT_PUBLIC_GOOGLE_CLIENT_ID in .env.local
- * - No backend required.
- * - Opens a real Google account chooser and logs real name & email to console.
- *
- * Notes:
- * - Make sure your origin is added in Google Cloud Console (Authorized JS origins).
- * - Scopes: 'profile email' -> we fetch userinfo from https://www.googleapis.com/oauth2/v3/userinfo
- */
+import { jwtDecode } from "jwt-decode";
+import { GoogleLogin } from "@react-oauth/google";
 
 export default function AuthPage() {
     const tokenClientRef = useRef(null);
@@ -22,120 +13,15 @@ export default function AuthPage() {
     const CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
     const SCOPES = "openid profile email";
 
-    useEffect(() => {
-        // dynamically add GIS script
-        const existing = document.getElementById("google-identity");
-        if (!existing) {
-            const script = document.createElement("script");
-            script.src = "https://accounts.google.com/gsi/client";
-            script.id = "google-identity";
-            script.async = true;
-            script.defer = true;
-            script.onload = () => {
-                setGisLoaded(true);
-            };
-            script.onerror = () => {
-                console.error("Failed to load Google Identity Services script.");
-            };
-            document.body.appendChild(script);
-        } else {
-            setGisLoaded(true);
+    const handleGoogleLoginSuccess = (credentialResponse) => {
+        if (credentialResponse.credential) {
+            const decoded = jwtDecode(credentialResponse.credential);
+            console.log("Google User Info:", decoded);
         }
+    };
 
-        return () => {
-            // optional cleanup (don't remove script to avoid reloading on route change)
-        };
-    }, []);
-
-    useEffect(() => {
-        if (!gisLoaded) return;
-        if (!CLIENT_ID) {
-            console.error(
-                "Missing NEXT_PUBLIC_GOOGLE_CLIENT_ID. Add it to .env.local and restart dev server."
-            );
-            return;
-        }
-
-        // init token client
-        /* global google */
-        try {
-            tokenClientRef.current = window.google.accounts.oauth2.initTokenClient({
-                client_id: CLIENT_ID,
-                scope: SCOPES,
-                // callback will be replaced when requestAccessToken is called, see below
-                callback: (resp) => {
-                    // placeholder
-                    console.log("token callback", resp);
-                },
-            });
-        } catch (err) {
-            console.error("Failed to initialize google token client:", err);
-        }
-    }, [gisLoaded, CLIENT_ID]);
-
-    const handleGoogleSignIn = async () => {
-        if (!tokenClientRef.current) {
-            console.error("Google token client not initialized yet.");
-            return;
-        }
-
-        setLoading(true);
-
-        try {
-            // Replace the callback dynamically to capture access token
-            tokenClientRef.current.callback = async (tokenResponse) => {
-                if (tokenResponse.error) {
-                    console.error("Token error:", tokenResponse);
-                    setLoading(false);
-                    return;
-                }
-
-                const accessToken = tokenResponse.access_token;
-                if (!accessToken) {
-                    console.error("No access token received:", tokenResponse);
-                    setLoading(false);
-                    return;
-                }
-
-                // Fetch user info using the access token
-                try {
-                    const res = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
-                        headers: {
-                            Authorization: `Bearer ${accessToken}`,
-                        },
-                    });
-
-                    if (!res.ok) {
-                        const text = await res.text();
-                        console.error("Failed fetching userinfo:", res.status, text);
-                        setLoading(false);
-                        return;
-                    }
-
-                    const profile = await res.json();
-                    // profile contains: sub, name, given_name, family_name, picture, email, email_verified, locale
-                    console.log("✅ Google user profile (real):", {
-                        name: profile.name,
-                        email: profile.email,
-                        // other available fields if you want:
-                        // picture: profile.picture,
-                        // locale: profile.locale,
-                    });
-
-                    setLoading(false);
-                } catch (fetchErr) {
-                    console.error("Error fetching userinfo:", fetchErr);
-                    setLoading(false);
-                }
-            };
-
-            // This opens the consent/account chooser popup.
-            // If the user has already granted the scopes, popup may be skipped, but usually shows chooser.
-            tokenClientRef.current.requestAccessToken({ prompt: "select_account" });
-        } catch (err) {
-            console.error("Error requesting access token:", err);
-            setLoading(false);
-        }
+    const handleGoogleLoginError = () => {
+        console.error("Google login failed");
     };
 
     // -- simple login/signup UI (we only call google handler here) --
@@ -202,29 +88,13 @@ export default function AuthPage() {
                             <button type="submit" className="auth-button login-button">
                                 Login
                             </button>
-
                             <div className="social-row">
-                                <button
-                                    type="button"
-                                    className="google-button"
-                                    onClick={handleGoogleSignIn}
-                                    disabled={!gisLoaded || loading}
-                                >
-                                    <svg
-                                        className="google-icon"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 48 48"
-                                        width="18"
-                                        height="18"
-                                        aria-hidden="true"
-                                    >
-                                        <path fill="#fbc02d" d="M43.6 20.5H42V20H24v8h11.3C34.2..." />
-                                    </svg>
-                                    <span>
-                                        {loading ? "Opening Google..." : "Sign in with Google"}
-                                    </span>
-                                </button>
+                                <GoogleLogin
+                                    onSuccess={handleGoogleLoginSuccess}
+                                    onError={handleGoogleLoginError}
+                                />
                             </div>
+
                         </form>
                     ) : (
                         <form onSubmit={handleSignupSubmit} className="auth-form">
