@@ -4,15 +4,9 @@ import Navbar from "../Navbar";
 import "./login.css";
 import { jwtDecode } from "jwt-decode";
 import { GoogleLogin } from "@react-oauth/google";
+import { SignUpHandler } from "../API";
 
 export default function AuthPage() {
-    const tokenClientRef = useRef(null);
-    const [gisLoaded, setGisLoaded] = useState(false);
-    const [loading, setLoading] = useState(false);
-
-    const CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
-    const SCOPES = "openid profile email";
-
     const handleGoogleLoginSuccess = (credentialResponse) => {
         if (credentialResponse.credential) {
             const decoded = jwtDecode(credentialResponse.credential);
@@ -23,8 +17,6 @@ export default function AuthPage() {
     const handleGoogleLoginError = () => {
         console.error("Google login failed");
     };
-
-    // -- simple login/signup UI (we only call google handler here) --
     const [isLogin, setIsLogin] = useState(true);
     const [signupData, setSignupData] = useState({
         email: "",
@@ -40,12 +32,20 @@ export default function AuthPage() {
     const handleLoginChange = (e) =>
         setLoginData({ ...loginData, [e.target.name]: e.target.value });
 
-    const handleSignupSubmit = (e) => {
+    const handleSignupSubmit = async (e) => {
         e.preventDefault();
         if (signupData.password !== signupData.confirmPassword) {
             console.error("Passwords do not match");
             return;
         }
+        try {
+            const res = await SignUpHandler(loginData);
+            alert(res.msg);
+        } catch (error) {
+            alert(error);
+        }
+
+
         console.log("Signup Data (local only):", {
             email: signupData.email,
             name: signupData.ownerName,
@@ -159,14 +159,6 @@ export default function AuthPage() {
                             {isLogin ? "Signup" : "Login"}
                         </button>
                     </p>
-
-                    <div style={{ marginTop: 12, color: "#666", fontSize: 13 }}>
-                        <div>GIS script loaded: {gisLoaded ? "yes" : "no"}</div>
-                        <div>
-                            Client ID present: {CLIENT_ID ? "yes" : "no (set NEXT_PUBLIC_GOOGLE_CLIENT_ID)"}
-                        </div>
-                        <div>Open console to see name & email after Google sign-in.</div>
-                    </div>
                 </div>
             </div>
         </>
